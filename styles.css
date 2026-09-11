@@ -1,1 +1,33 @@
+body {
+    margin: 0; 
+    font-family: system-ui, Arial, sans-serif;
+    line-height: 1.5;
+}
 
+.features{
+    background: #fff;
+}
+
+.feature-grid{
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 
+    repeat(3, 1fr);
+    gap: 18px;
+}
+
+.feature{
+    padding: 22px;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.feature h3{
+    margin-top: 0;
+}
+
+.feature p{
+    margin-bottom: 0;
+    color: #4b5563;
+    line-height: 1.6;
+}
