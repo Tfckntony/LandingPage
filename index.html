@@ -1,101 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">    
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 
+       
+        RESPUESTA: Define el área visible de la página en la pantalla del dispositivo y ajusta la escala inicial. Sin esta etiqueta, los navegadores móviles asumirían un ancho de pantalla de escritorio (habitualmente 980px), haciendo que todo el texto y componentes se vean diminutos y requieran hacer zoom manual para leer.
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi proyecto</title>
+    <title>Mi Proyecto</title>
+    <!-- 
+
+        RESPUESTA: Mediante la etiqueta <link>, donde rel="stylesheet" le indica al navegador que el recurso vinculado es una hoja de estilos CSS y href="styles.css" proporciona la ruta relativa hacia dicho archivo.
+    -->
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <header class = "site-header">
-        
-        <nav class = "nav container">
-            <!--#inicio significa que se redirige a la seccion de inicio de la pagina-->
-            <!--La pagina sabe a donde se dirige gracias al atributo href que es el identificador de la seccion-->
-            <a class = "brand" href = "#inicio">Mi proyecto</a>
 
-            <div class = "nav-links">
-                <a href = "#inicio">Inicio</a>
-                <a href = "#caracteristicas">Caracteristicas</a>
-                <a href = "#contenido">Contenido</a>
-                <a href = "#proceso">Proceso</a>
-                <a href = "#contacto">Contacto</a>
+    <!-- Sección 1: Navegación -->
+    <header class="site-header">
+        <nav class="nav container">
+            <!-- 
+                RESPUESTA: El HTML semántico consiste en utilizar etiquetas que describen el significado y propósito del contenido, no solo su apariencia visual. Usar <nav> le indica explícitamente a los motores de búsqueda y a tecnologías de asistencia (como lectores de pantalla) que este bloque contiene la navegación principal del sitio.
+            -->
+            <a class="brand" href="#inicio">Mi Proyecto</a>
+            <div class="nav-links">
+                <!-- 
+                    RESPUESTA: El símbolo '#' representa un identificador de fragmento (ancla interna). El navegador busca en el documento el elemento que posea el atributo id coincidente (id="inicio") y desplaza la vista automáticamente hacia su posición.
+                -->
+                <a href="#inicio">Inicio</a>
+                <a href="#caracteristicas">Características</a>
+                <a href="#contenido">Contenido</a>
+                <a href="#proceso">Proceso</a>
+                <a href="#contacto">Contacto</a>
             </div>
         </nav>
     </header>
+
     <main>
-
-        <section id = "inicio" class = "section hero">
-            <div class = "container hero-content">
-                <p class = "eyebrow">
-                    Una idea puede convertirse en algo real
+        <!-- Sección 1: Hero -->
+        <section id="inicio" class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">Una idea puede convertirse en algo real</p>
+                <!-- 
+                    RESPUESTA: Porque el <h1> representa el tema o título jerárquico supremo del documento web. Tener un único <h1> clarifica la jerarquía del contenido para la accesibilidad (lectores de pantalla) y optimiza el posicionamiento SEO.
+                -->
+                <h1>Construye una experiencia web clara y útil</h1>
+                <p class="hero-text">
+                    Esta landing page puede adaptarse a cualquier proyecto: un producto, servicio, evento, portafolio o aplicación.
                 </p>
-            </div>
-            <!--Normalmente solo hay una etiqueta h1 por que es la principal representa el titulo principal de la seccion-->
-            <h1>
-                Construye una experiencia web atractiva y funcional con nuestro proyecto.
-            </h1>
-
-            <p class = "hero-text">
-                Esta landing puede adaptarse a cualquier proyecto:
-                
-                Un producto, un servicio, una app, un curso, un evento, etc.
-            </p>
-
-            <div class = "hero-actions">
-                <a href="#contacto" class="btn btn-primary">Contacto</a>
-                <a href="#contenido" class="btn btn-secondary">Explorar</a>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#contenido">Explorar</a>
+                    <a class="btn btn-secondary" href="#contacto">Contacto</a>
+                </div>
             </div>
         </section>
-        
-        <h1>Bienvenido a mi proyecto</h1>
-        <p>Este es un ejemplo de una página de aterrizaje.</p>
-        <a href="index.html">Ir a la página principal</a>
 
-        <section
-            id = "caracteristicas"
-            class = "section features"
-        >
-        <div class = "container">
-        <h2 class ="section-title">
-            caracteristicas
-        </h2>
+        <!-- Sección 2: Características -->
+        <section id="caracteristicas" class="section features">
+            <div class="container">
+                <h2 class="section-title">Características</h2>
+                <p class="section-text">
+                    Una estructura sencilla para presentar lo más importante de cualquier proyecto.
+                </p>
+                <div class="feature-grid">
+                    <!-- 
+                        RESPUESTA: Se utiliza <article> porque agrupa un bloque independiente y autónomo de información que conserva sentido por sí mismo. La semántica provee significado funcional al contenido tanto para navegadores como para motores de búsqueda y lectores de pantalla.
+                    -->
+                    <article class="feature">
+                        <h3>Claro</h3>
+                        <p>La información principal se entiende rápidamente.</p>
+                    </article>
+                    <article class="feature">
+                        <h3>Flexible</h3>
+                        <p>La página puede adaptarse a distintos proyectos.</p>
+                    </article>
+                    <article class="feature">
+                        <h3>Responsive</h3>
+                        <p>El diseño puede ajustarse a computadora y celular.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-        <p class ="section-text">
-            EStructura para presentar lo importante del proyecto
-        </p>
+        <!-- Sección 3: Contenido en tarjetas -->
+        <section id="contenido" class="section content-section">
+            <div class="container">
+                <h2 class="section-title">Contenido destacado</h2>
+                <p class="section-text">
+                    Estos bloques pueden representar cualquier elemento importante dentro del proyecto.
+                </p>
+                <div class="cards">
+                    <!-- 
+                        RESPUESTA: Favorece el principio DRY (Don't Repeat Yourself), reduce la duplicación de código CSS, garantiza uniformidad y coherencia visual en el diseño y facilita el mantenimiento global (cambiar la clase actualiza todas las tarjetas a la vez).
+                    -->
+                    <article class="card">
+                        <span class="tag">Elemento 01</span>
+                        <h3>Primera opción</h3>
+                        <p>Descripción breve del primer elemento.</p>
+                        <a href="#">Ver más</a>
+                    </article>
+                    <article class="card">
+                        <span class="tag">Elemento 02</span>
+                        <h3>Segunda opción</h3>
+                        <p>Descripción breve del segundo elemento.</p>
+                        <a href="#">Ver más</a>
+                    </article>
+                    <article class="card">
+                        <span class="tag">Elemento 03</span>
+                        <h3>Tercera opción</h3>
+                        <p>Descripción breve del tercer elemento.</p>
+                        <a href="#">Ver más</a>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-        <div class = "feature-grid">
-            <!-- ¿Por qué usamos <article>?
-            para encerrar contenido que tiene sentido por sí mismo y que podría distribuirse,
-            reutilizarse o publicarse de forma independiente en otro sitio 
-            <!-- ¿Qué significa que un elemento tenga significado semántico?
-            para que la etiqueta le informa al navegador, a los motores de búsqueda y a los lectores de pantalla
-            lo que es el contenido, y no solo cómo debe verse.-->
-            
-        <article class = "feature">
-            <h3> 
-                Flexible
-            </h3>
-            <p>
-                La pagina debe aadaptarse a diferentes proyectos
-            </p>
-        </article>
+        <!-- Sección 4: Proceso -->
+        <section id="proceso" class="section process">
+            <div class="container">
+                <h2 class="section-title">Cómo funciona</h2>
+                <p class="section-text">
+                    Un proceso simple dividido en cuatro pasos.
+                </p>
+                <div class="steps">
+                    <article class="step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3>Descubre</h3>
+                            <p>Conoce la idea principal del proyecto.</p>
+                        </div>
+                    </article>
+                    <article class="step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3>Explora</h3>
+                            <p>Revisa las opciones disponibles.</p>
+                        </div>
+                    </article>
+                    <article class="step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3>Decide</h3>
+                            <p>Selecciona aquello que necesitas.</p>
+                        </div>
+                    </article>
+                    <article class="step">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h3>Actúa</h3>
+                            <p>Realiza la acción principal del sitio.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-        <article class = "feature">
-            <h3>
-                Responsive
-            </h3>
-            <p>
-                EL diseño puede ajustarse a computadora y celular
-            </p>
-        </article>
-    </div>
-</div>
-</section>
+        <!-- Sección 5: Contacto -->
+        <section id="contacto" class="section contact">
+            <div class="container contact-grid">
+                <div>
+                    <h2 class="section-title">Hablemos</h2>
+                    <p class="section-text">
+                        Esta sección puede convertirse en formulario, registro, cotización o suscripción.
+                    </p>
+                </div>
+                <!-- 
+                    RESPUESTA: <form> agrupa controles interactivos para capturar datos introducidos por el usuario y enviarlos a un servidor o procesador. Por defecto, al enviarse recarga la página o realiza una petición HTTP (GET o POST) a la URL definida en su atributo action.
+                -->
+                <form class="contact-form">
+                    <label>
+                        Nombre
+                        <input type="text" name="nombre" placeholder="Tu nombre">
+                    </label>
+                    <label>
+                        Correo
+                        <!-- 
+                            INVESTIGAR: ¿Qué diferencia existe entre type="text" y type="email"?
+                            RESPUESTA: type="email" valida de forma automática que el texto ingresado tenga un formato de dirección de correo válido (contenga @ y dominio) antes de enviar el formulario, además de mostrar un teclado optimizado para emails en dispositivos móviles.
+                        -->
+                        <input type="email" name="correo" placeholder="correo@ejemplo.com">
+                    </label>
+                    <label>
+                        Mensaje
+                        <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje"></textarea>
+                    </label>
+                    <!-- 
+                        
+                        RESPUESTA: Dispara el evento de envío (submit) del formulario al que pertenece, validando los campos y empaquetando sus valores para enviarlos.
+                    -->
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>2026 Mi Proyecto</p>
+        </div>
+    </footer>
+
 </body>
 </html>
