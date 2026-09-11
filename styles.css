@@ -1,225 +1,416 @@
-*{
-    margin: 0;
-    padding: 0;
+/* 
+    INVESTIGAR: ¿Qué significa el selector * ? ¿Qué hace box-sizing: border-box?
+    RESPUESTA:
+    - El selector '*' es el selector universal: aplica las reglas a absolutamente todos los elementos del DOM.
+    - 'box-sizing: border-box' modifica el modelo de caja de CSS para que las propiedades width y height incluyan tanto el contenido como el padding y el border, evitando que los elementos crezcan más allá del tamaño especificado.
+*/
+* {
     box-sizing: border-box;
 }
-
-/*
-    El selector universal (*) aplica estilos a todos los elementos de la página, 
-    eliminando márgenes y rellenos predeterminados y estableciendo box-sizing en border-box 
-    para que el ancho y alto de los elementos incluyan el padding y el borde.
-
-    La propiedad box-sizing: border-box; cambia la forma en que el navegador 
-    calcula el tamaño total (ancho y alto) de un elemento
-*/
 
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #1f2937;
+    background: #ffffff;
 }
 
-/*
-    La funcion a {...} hace que se apliquen propiedades a todos los elementos 
-    <a> (enlaces) de la página, eliminando el subrayado predeterminado y heredando el color del texto circundante.
+/* 
+    INVESTIGAR: ¿Qué significa escribir simplemente: a {...}? ¿A cuántos elementos afecta?
+    RESPUESTA: Es un selector de tipo o etiqueta. Afecta a todos los elementos <a> (enlaces) de todo el documento HTML.
 */
-
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
-/*
-    La clase .container se utiliza para centrar y limitar el ancho del contenido de la página, 
-    aplicando un margen automático a los lados y un relleno interno.
+/* 
+    INVESTIGAR: ¿Para qué sirve un container? ¿Por qué muchas páginas modernas limitan el ancho máximo del contenido?
+    RESPUESTA: Sirve para centrar el contenido principal y mantenerlo alineado horizontalmente. Limitar el ancho máximo evita que las líneas de texto sean excesivamente largas en pantallas ultra anchas, lo cual dificulta la lectura cómoda y perjudica la estética visual.
 */
-
 .container {
     width: min(1100px, calc(100% - 40px));
     margin: 0 auto;
-    padding: 20px;
 }
 
-/*
-    La clase .section se utiliza para definir secciones de la página con un relleno vertical 
-    de 80 píxeles en la parte superior e inferior.
-    Es necesario crear secciones para organizar el contenido de la página y mejorar la legibilidad.
-    Conviene crearlas por separado para poder reutilizarlas en diferentes partes de la página.
+/* 
+    INVESTIGAR: ¿Por qué conviene crear clases reutilizables como .section?
+    RESPUESTA: Permite mantener un espaciado vertical homogéneo y coherente a lo largo de toda la página web, optimizando la mantenibilidad y reduciendo el código repetido.
 */
-
 .section {
     padding: 80px 0;
 }
 
 .section-title {
-    text-align: center;
-    margin-bottom: 40px;
-    margin: 0 auto 40px auto;
+    margin: 0;
     font-size: 2rem;
 }
 
 .section-text {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 1.2rem;
-    color: #4b5563;
-    max-width: 800px;
+    max-width: 700px;
     margin-top: 12px;
+    color: #4b5563;
     line-height: 1.6;
 }
 
-.features{
-    background: #fff;
+/* --- Navegación --- */
+.site-header {
+    border-bottom: 1px solid #e5e7eb;
+    background: #ffffff;
 }
 
-.feature-grid{
+/* 
+    INVESTIGAR: ¿Qué es Flexbox? ¿Para qué tipo de problemas de distribución es útil? ¿Cuál es la diferencia principal entre Flexbox y CSS Grid?
+    RESPUESTA:
+    - Flexbox es un modelo de maquetación unidimensional (organiza elementos en una sola dimensión: fila o columna).
+    - Es ideal para alinear componentes, barras de navegación, botones y distribuir espacios entre elementos en línea.
+    - La diferencia principal es que Flexbox es unidimensional (fila O columna), mientras que CSS Grid es bidimensional (maneja filas Y columnas simultáneamente).
+*/
+.nav {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+/* 
+    INVESTIGAR: ¿Por qué margin-left: auto empuja los enlaces hacia la derecha?
+    RESPUESTA: En un contenedor Flexbox, un margen con valor 'auto' absorbe todo el espacio libre disponible en ese eje; por tanto, 'margin-left: auto' ocupa todo el espacio sobrante a la izquierda empujando el elemento hacia el extremo derecho.
+*/
+.nav-links {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+}
+
+/* 
+    INVESTIGAR: ¿Qué significa :hover? ¿Por qué se considera una pseudoclase?
+    RESPUESTA: ':hover' es un estado que se activa cuando el usuario coloca el cursor sobre un elemento. Se considera una pseudoclase porque clasifica a un elemento según su estado interactivo dinámico sin necesidad de agregar una clase física en el HTML.
+*/
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* --- Hero --- */
+/* 
+    INVESTIGAR: Aquí estamos usando CSS Grid. ¿Qué hace display: grid? ¿Qué hace place-items: center? ¿Por qué Grid también puede servir para centrar un elemento?
+    RESPUESTA:
+    - 'display: grid' convierte el elemento en un contenedor de cuadrícula.
+    - 'place-items: center' es un atajo para 'align-items: center' y 'justify-items: center', centrando los hijos horizontal y verticalmente al mismo tiempo.
+    - Resulta sumamente útil para centrar porque resuelve el centrado total con tan solo esas dos líneas de CSS.
+*/
+.hero {
+    min-height: 520px;
+    display: grid;
+    place-items: center;
+    background: #f8fafc;
+}
+
+.hero-content {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.eyebrow {
+    font-weight: 700;
+}
+
+/* 
+    INVESTIGAR: ¿Qué significa la unidad rem? ¿Cuál es la diferencia entre rem y px?
+    RESPUESTA: 'rem' significa "Root EM" y es una unidad relativa al font-size del elemento raíz (<html>), usualmente 16px por defecto (1rem = 16px). A diferencia de 'px', que es una unidad estática y fija, 'rem' escala proporcionalmente si el usuario ajusta las preferencias de accesibilidad o tamaño de fuente en su navegador.
+*/
+.hero h1 {
+    max-width: 760px;
+    margin: 16px auto 0;
+    font-size: 3rem;
+    line-height: 1.05;
+}
+
+.hero-text {
+    max-width: 650px;
+    margin: 22px auto 0;
+    color: #4b5563;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.hero-actions {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.btn-primary {
+    background: #111827;
+    color: #ffffff;
+}
+
+.btn-secondary {
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+}
+
+/* --- Sección 2: Características --- */
+.features {
+    background: #ffffff;
+}
+
+/* 
+    INVESTIGAR: ¿Qué significa repeat(3, 1fr)? ¿Qué significa fr? ¿Qué pasaría si cambiamos 3 por 2?
+    RESPUESTA:
+    - 'fr' es una unidad fraccional que representa una fracción del espacio libre disponible dentro del grid container.
+    - 'repeat(3, 1fr)' crea 3 columnas de idéntico ancho repartidas en partes iguales.
+    - Si cambiamos 3 por 2, se estructurará en 2 columnas por fila, provocando que el tercer elemento se desplace a una segunda fila.
+*/
+.feature-grid {
     margin-top: 32px;
     display: grid;
-    grid-template-columns: 
-    repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 18px;
 }
 
-.feature{
+.feature {
     padding: 22px;
     border: 1px solid #e5e7eb;
     border-radius: 16px;
 }
 
-.feature h3{
+.feature h3 {
     margin-top: 0;
 }
 
-.feature p{
+.feature p {
     margin-bottom: 0;
     color: #4b5563;
     line-height: 1.6;
 }
 
-.site-header {
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+/* --- Sección 3: Contenido en tarjetas --- */
+.content-section {
+    background: #f8fafc;
 }
 
-/*
-    La clase .nav se utiliza para definir la barra de navegación de la página, 
-    aplicando un diseño flexible (flexbox) para distribuir los elementos de manera equitativa 
-    y alinearlos verticalmente en el centro.
-
-    La diferencia de flexbox con CSS grid es que flexbox se centra en la distribución de 
-    elementos en una sola dimensión (fila o columna),
-*/
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    gap: 24px;
+.cards {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
 }
 
-.brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #1f2937;
-}
-
-/* margin-left empuja los elemetos hacia la derecha por que se aplica un margen izquierdo automático, 
-   display: flex; permite que los elementos hijos se alineen en una fila, 
-   y gap: 24px; establece un espacio de 24 píxeles entre cada elemento hijo. */
-
-.nav-links {
-    margin-left: auto;
-    display: flex;
-    gap: 24px;
+.card {
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
 }
 
 /* 
-    La clase .nav-links a:hover se utiliza para aplicar un efecto visual a los enlaces de navegación 
-    cuando el usuario pasa el cursor sobre ellos, subrayando el texto del enlace.
-
-    Se considera pseudoclase porque no selecciona un elemento específico, 
-    sino que aplica estilos a un estado particular del elemento (en este caso, cuando el usuario pasa el cursor sobre el enlace).
+    INVESTIGAR: ¿Qué significa inline-block? ¿Qué diferencia existe entre block, inline e inline-block?
+    RESPUESTA:
+    - 'block': Ocupa todo el ancho de la línea disponible y admite margin, padding, width y height.
+    - 'inline': Ocupa solo el espacio de su contenido y no respeta width, height ni márgenes verticales.
+    - 'inline-block': Fluye en línea junto a otros elementos como 'inline', pero permite configurarle width, height, padding y margins como un elemento 'block'.
 */
-
-.nav-links a:hover {
-    text-decoration: underline;
+.tag {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #eef2ff;
+    font-size: 0.85rem;
+    font-weight: 700;
 }
 
-.hero {
-    min height: 520px;
-    display: grid;
-    place-items: center;
-    background-color: #e5e7eb;
+.card h3 {
+    margin: 18px 0 8px;
 }
 
-.hero-content {
-    padding: 40px;
-    text-align: center;
-}
-
-.eyebrow {
-    text-transform: uppercase;
-    font-size: 0.875rem;
-    color: #6b7280;
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
-}
-
-/* rem significa "root em" y es una unidad relativa de medida en CSS que se basa en el tamaño de fuente del elemento raíz (generalmente el elemento <html>). 
-   1rem equivale al tamaño de fuente del elemento raíz, 
-   lo que permite que los elementos escalen proporcionalmente según la configuración de fuente del usuario. */
-
-.hero h1 {
-    max-width: 750px;
-    margin: 0 auto 24px auto;
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-    color: #111827;
-    line-height: 1.2;
-}
-
-.hero text {
-    max-width: 600px;
-    margin: 0 auto 32px auto;
-    font-size: 1.125rem;
+.card p {
     color: #4b5563;
     line-height: 1.6;
 }
 
-.hero actions {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin -top: 24px;
-}
-
-.btn {
+.card a {
     display: inline-block;
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: 500;
+    margin-top: 8px;
+    font-weight: 700;
+}
+
+/* --- Sección 4: Proceso --- */
+.process {
+    background: #ffffff;
+}
+
+/* 
+    INVESTIGAR: ¿Qué elementos controla exactamente este Grid?
+    RESPUESTA: Controla directamente a sus elementos hijos inmediatos, es decir, a los cuatro elementos <article class="step">, distribuyéndolos en una matriz de 2 columnas.
+*/
+.steps {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+/* 
+    INVESTIGAR: ¿Qué elementos estamos acomodando dentro de .step? ¿Por qué Flexbox resulta cómodo en este caso?
+    RESPUESTA: Estamos acomodando el contenedor del número (.step-number) y el bloque de texto (el <div> que contiene el h3 y p). Flexbox resulta cómodo porque permite colocarlos lado a lado de forma unidimensional con un espacio (gap) y alinear su parte superior con 'align-items: flex-start'.
+*/
+.step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+/* 
+    INVESTIGAR: ¿Qué significa flex: 0 0 36px? ¿Qué evita que ocurra?
+    RESPUESTA: Representa la abreviación de flex-grow: 0 (no crece), flex-shrink: 0 (no se encoge) y flex-basis: 36px (ancho base fijo). Evita que el contenedor del número se deforme o aplaste si el texto contiguo se vuelve muy largo.
+*/
+.step-number {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #111827;
     color: #ffffff;
-    background-color: #3b82f6;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    font-weight: 800;
 }
 
-.btn-primary {
-    background-color: #2563eb;
-    color : #ffffff;
+.step h3 {
+    margin: 0;
 }
 
-.btn_secondary {
-    background-color: #e5e7eb;
-    color: #1f2937;
+.step p {
+    margin: 6px 0 0;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+/* --- Sección 5: Contacto + Footer --- */
+.contact {
+    background: #f8fafc;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.contact-form {
+    display: grid;
+    gap: 16px;
+}
+
+.contact-form label {
+    display: grid;
+    gap: 8px;
+    font-weight: 700;
+}
+
+/* 
+    INVESTIGAR: ¿Qué significa width: 100%? ¿100% de qué?
+    RESPUESTA: Significa que el ancho del campo abarcará el 100% del ancho del elemento contenedor padre (en este caso, la etiqueta <label>).
+*/
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    /* 
+        INVESTIGAR: ¿Qué significa inherit? ¿De dónde obtiene la tipografía?
+        RESPUESTA: 'inherit' obliga al elemento a adoptar la tipografía de su elemento padre (y por cascada, la establecida en el <body>: Arial, sans-serif), anulando la fuente predeterminada del sistema para controles de formulario.
+    */
+    font: inherit;
+}
+
+/* 
+    INVESTIGAR: ¿Por qué normalmente usamos cursor: pointer en elementos interactivos?
+    RESPUESTA: Porque transforma el cursor en una mano que señala, comunicando al usuario de forma intuitiva que el elemento es accionable (se le puede hacer clic).
+*/
+.contact-form button {
+    border: 0;
+    cursor: pointer;
+}
+
+.footer {
+    padding: 28px 0;
+    background: #111827;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* --- Paso final: Responsive --- */
+/* 
+    INVESTIGAR: ¿Qué es una media query? ¿Qué significa max-width: 760px? ¿Qué significa breakpoint?
+    RESPUESTA:
+    - Una media query es una regla de CSS que aplica bloques de estilos únicamente si se cumplen ciertas condiciones del medio o dispositivo (como el ancho de la pantalla).
+    - 'max-width: 760px' condiciona a que los estilos internos se apliquen desde 0px hasta un ancho máximo de 760px.
+    - Un breakpoint (punto de quiebre) es el ancho exacto en el que el diseño se adapta para garantizar su legibilidad en pantallas de menor tamaño.
+*/
+@media (max-width: 760px) {
+    /* 
+        INVESTIGAR: Flexbox utiliza por defecto flex-direction: row. ¿Qué cambia al utilizar column?
+        RESPUESTA: Cambia el eje principal de horizontal a vertical; los elementos hijos se apilan uno debajo del otro en lugar de posicionarse en fila.
+    */
+    .nav {
+        flex-direction: column;
+        padding: 18px 0;
+    }
+
+    /* 
+        INVESTIGAR: ¿Qué hace flex-wrap? ¿Qué problema resuelve?
+        RESPUESTA: Permite que los elementos flex pasen a una nueva línea si superan el ancho disponible del contenedor, evitando que se desborden horizontalmente de la pantalla.
+    */
+    .nav-links {
+        margin-left: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    /* 
+        INVESTIGAR: ¿Por qué ahora 1fr provoca una sola columna?
+        RESPUESTA: Porque al definir una única pista '1fr' en grid-template-columns, la cuadrícula solo genera una columna que absorbe el 100% del espacio, apilando todos los elementos verticalmente.
+    */
+    .feature-grid,
+    .cards,
+    .steps,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
 }
