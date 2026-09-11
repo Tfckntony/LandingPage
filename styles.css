@@ -99,3 +99,127 @@ a {
     color: #4b5563;
     line-height: 1.6;
 }
+
+.site-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/*
+    La clase .nav se utiliza para definir la barra de navegación de la página, 
+    aplicando un diseño flexible (flexbox) para distribuir los elementos de manera equitativa 
+    y alinearlos verticalmente en el centro.
+
+    La diferencia de flexbox con CSS grid es que flexbox se centra en la distribución de 
+    elementos en una sola dimensión (fila o columna),
+*/
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    gap: 24px;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+/* margin-left empuja los elemetos hacia la derecha por que se aplica un margen izquierdo automático, 
+   display: flex; permite que los elementos hijos se alineen en una fila, 
+   y gap: 24px; establece un espacio de 24 píxeles entre cada elemento hijo. */
+
+.nav-links {
+    margin-left: auto;
+    display: flex;
+    gap: 24px;
+}
+
+/* 
+    La clase .nav-links a:hover se utiliza para aplicar un efecto visual a los enlaces de navegación 
+    cuando el usuario pasa el cursor sobre ellos, subrayando el texto del enlace.
+
+    Se considera pseudoclase porque no selecciona un elemento específico, 
+    sino que aplica estilos a un estado particular del elemento (en este caso, cuando el usuario pasa el cursor sobre el enlace).
+*/
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    min height: 520px;
+    display: grid;
+    place-items: center;
+    background-color: #e5e7eb;
+}
+
+.hero-content {
+    padding: 40px;
+    text-align: center;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    color: #6b7280;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+}
+
+/* rem significa "root em" y es una unidad relativa de medida en CSS que se basa en el tamaño de fuente del elemento raíz (generalmente el elemento <html>). 
+   1rem equivale al tamaño de fuente del elemento raíz, 
+   lo que permite que los elementos escalen proporcionalmente según la configuración de fuente del usuario. */
+
+.hero h1 {
+    max-width: 750px;
+    margin: 0 auto 24px auto;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: #111827;
+    line-height: 1.2;
+}
+
+.hero text {
+    max-width: 600px;
+    margin: 0 auto 32px auto;
+    font-size: 1.125rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.hero actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin -top: 24px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #3b82f6;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color : #ffffff;
+}
+
+.btn_secondary {
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
