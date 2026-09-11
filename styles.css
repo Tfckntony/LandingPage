@@ -1,5 +1,4 @@
 /* 
-    INVESTIGAR: ¿Qué significa el selector * ? ¿Qué hace box-sizing: border-box?
     RESPUESTA:
     - El selector '*' es el selector universal: aplica las reglas a absolutamente todos los elementos del DOM.
     - 'box-sizing: border-box' modifica el modelo de caja de CSS para que las propiedades width y height incluyan tanto el contenido como el padding y el border, evitando que los elementos crezcan más allá del tamaño especificado.
@@ -20,7 +19,6 @@ body {
 }
 
 /* 
-    INVESTIGAR: ¿Qué significa escribir simplemente: a {...}? ¿A cuántos elementos afecta?
     RESPUESTA: Es un selector de tipo o etiqueta. Afecta a todos los elementos <a> (enlaces) de todo el documento HTML.
 */
 a {
@@ -29,7 +27,6 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Para qué sirve un container? ¿Por qué muchas páginas modernas limitan el ancho máximo del contenido?
     RESPUESTA: Sirve para centrar el contenido principal y mantenerlo alineado horizontalmente. Limitar el ancho máximo evita que las líneas de texto sean excesivamente largas en pantallas ultra anchas, lo cual dificulta la lectura cómoda y perjudica la estética visual.
 */
 .container {
@@ -38,7 +35,6 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Por qué conviene crear clases reutilizables como .section?
     RESPUESTA: Permite mantener un espaciado vertical homogéneo y coherente a lo largo de toda la página web, optimizando la mantenibilidad y reduciendo el código repetido.
 */
 .section {
@@ -64,7 +60,6 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Qué es Flexbox? ¿Para qué tipo de problemas de distribución es útil? ¿Cuál es la diferencia principal entre Flexbox y CSS Grid?
     RESPUESTA:
     - Flexbox es un modelo de maquetación unidimensional (organiza elementos en una sola dimensión: fila o columna).
     - Es ideal para alinear componentes, barras de navegación, botones y distribuir espacios entre elementos en línea.
@@ -83,7 +78,6 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Por qué margin-left: auto empuja los enlaces hacia la derecha?
     RESPUESTA: En un contenedor Flexbox, un margen con valor 'auto' absorbe todo el espacio libre disponible en ese eje; por tanto, 'margin-left: auto' ocupa todo el espacio sobrante a la izquierda empujando el elemento hacia el extremo derecho.
 */
 .nav-links {
@@ -93,7 +87,6 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Qué significa :hover? ¿Por qué se considera una pseudoclase?
     RESPUESTA: ':hover' es un estado que se activa cuando el usuario coloca el cursor sobre un elemento. Se considera una pseudoclase porque clasifica a un elemento según su estado interactivo dinámico sin necesidad de agregar una clase física en el HTML.
 */
 .nav-links a:hover {
@@ -102,7 +95,6 @@ a {
 
 /* --- Hero --- */
 /* 
-    INVESTIGAR: Aquí estamos usando CSS Grid. ¿Qué hace display: grid? ¿Qué hace place-items: center? ¿Por qué Grid también puede servir para centrar un elemento?
     RESPUESTA:
     - 'display: grid' convierte el elemento en un contenedor de cuadrícula.
     - 'place-items: center' es un atajo para 'align-items: center' y 'justify-items: center', centrando los hijos horizontal y verticalmente al mismo tiempo.
@@ -125,7 +117,6 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Qué significa la unidad rem? ¿Cuál es la diferencia entre rem y px?
     RESPUESTA: 'rem' significa "Root EM" y es una unidad relativa al font-size del elemento raíz (<html>), usualmente 16px por defecto (1rem = 16px). A diferencia de 'px', que es una unidad estática y fija, 'rem' escala proporcionalmente si el usuario ajusta las preferencias de accesibilidad o tamaño de fuente en su navegador.
 */
 .hero h1 {
@@ -173,7 +164,6 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Qué significa repeat(3, 1fr)? ¿Qué significa fr? ¿Qué pasaría si cambiamos 3 por 2?
     RESPUESTA:
     - 'fr' es una unidad fraccional que representa una fracción del espacio libre disponible dentro del grid container.
     - 'repeat(3, 1fr)' crea 3 columnas de idéntico ancho repartidas en partes iguales.
@@ -222,7 +212,6 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Qué significa inline-block? ¿Qué diferencia existe entre block, inline e inline-block?
     RESPUESTA:
     - 'block': Ocupa todo el ancho de la línea disponible y admite margin, padding, width y height.
     - 'inline': Ocupa solo el espacio de su contenido y no respeta width, height ni márgenes verticales.
@@ -258,7 +247,7 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Qué elementos controla exactamente este Grid?
+
     RESPUESTA: Controla directamente a sus elementos hijos inmediatos, es decir, a los cuatro elementos <article class="step">, distribuyéndolos en una matriz de 2 columnas.
 */
 .steps {
@@ -269,7 +258,6 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Qué elementos estamos acomodando dentro de .step? ¿Por qué Flexbox resulta cómodo en este caso?
     RESPUESTA: Estamos acomodando el contenedor del número (.step-number) y el bloque de texto (el <div> que contiene el h3 y p). Flexbox resulta cómodo porque permite colocarlos lado a lado de forma unidimensional con un espacio (gap) y alinear su parte superior con 'align-items: flex-start'.
 */
 .step {
@@ -282,7 +270,6 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Qué significa flex: 0 0 36px? ¿Qué evita que ocurra?
     RESPUESTA: Representa la abreviación de flex-grow: 0 (no crece), flex-shrink: 0 (no se encoge) y flex-basis: 36px (ancho base fijo). Evita que el contenedor del número se deforme o aplaste si el texto contiguo se vuelve muy largo.
 */
 .step-number {
@@ -331,7 +318,6 @@ a {
 }
 
 /* 
-    INVESTIGAR: ¿Qué significa width: 100%? ¿100% de qué?
     RESPUESTA: Significa que el ancho del campo abarcará el 100% del ancho del elemento contenedor padre (en este caso, la etiqueta <label>).
 */
 .contact-form input,
@@ -341,14 +327,12 @@ a {
     border: 1px solid #d1d5db;
     border-radius: 10px;
     /* 
-        INVESTIGAR: ¿Qué significa inherit? ¿De dónde obtiene la tipografía?
         RESPUESTA: 'inherit' obliga al elemento a adoptar la tipografía de su elemento padre (y por cascada, la establecida en el <body>: Arial, sans-serif), anulando la fuente predeterminada del sistema para controles de formulario.
     */
     font: inherit;
 }
 
 /* 
-    INVESTIGAR: ¿Por qué normalmente usamos cursor: pointer en elementos interactivos?
     RESPUESTA: Porque transforma el cursor en una mano que señala, comunicando al usuario de forma intuitiva que el elemento es accionable (se le puede hacer clic).
 */
 .contact-form button {
@@ -365,7 +349,6 @@ a {
 
 /* --- Paso final: Responsive --- */
 /* 
-    INVESTIGAR: ¿Qué es una media query? ¿Qué significa max-width: 760px? ¿Qué significa breakpoint?
     RESPUESTA:
     - Una media query es una regla de CSS que aplica bloques de estilos únicamente si se cumplen ciertas condiciones del medio o dispositivo (como el ancho de la pantalla).
     - 'max-width: 760px' condiciona a que los estilos internos se apliquen desde 0px hasta un ancho máximo de 760px.
@@ -373,7 +356,6 @@ a {
 */
 @media (max-width: 760px) {
     /* 
-        INVESTIGAR: Flexbox utiliza por defecto flex-direction: row. ¿Qué cambia al utilizar column?
         RESPUESTA: Cambia el eje principal de horizontal a vertical; los elementos hijos se apilan uno debajo del otro en lugar de posicionarse en fila.
     */
     .nav {
@@ -382,7 +364,7 @@ a {
     }
 
     /* 
-        INVESTIGAR: ¿Qué hace flex-wrap? ¿Qué problema resuelve?
+        
         RESPUESTA: Permite que los elementos flex pasen a una nueva línea si superan el ancho disponible del contenedor, evitando que se desborden horizontalmente de la pantalla.
     */
     .nav-links {
@@ -400,7 +382,7 @@ a {
     }
 
     /* 
-        INVESTIGAR: ¿Por qué ahora 1fr provoca una sola columna?
+        
         RESPUESTA: Porque al definir una única pista '1fr' en grid-template-columns, la cuadrícula solo genera una columna que absorbe el 100% del espacio, apilando todos los elementos verticalmente.
     */
     .feature-grid,
