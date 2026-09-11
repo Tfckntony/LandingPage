@@ -10,8 +10,47 @@
 </head>
 
 <body>
-    
+    <header class = "site-header">
+        
+        <nav class = "nav container">
+            <!--#inicio significa que se redirige a la seccion de inicio de la pagina-->
+            <!--La pagina sabe a donde se dirige gracias al atributo href que es el identificador de la seccion-->
+            <a class = "brand" href = "#inicio">Mi proyecto</a>
+
+            <div class = "nav-links">
+                <a href = "#inicio">Inicio</a>
+                <a href = "#caracteristicas">Caracteristicas</a>
+                <a href = "#contenido">Contenido</a>
+                <a href = "#proceso">Proceso</a>
+                <a href = "#contacto">Contacto</a>
+            </div>
+        </nav>
+    </header>
     <main>
+
+        <section id = "inicio" class = "section hero">
+            <div class = "container hero-content">
+                <p class = "eyebrow">
+                    Una idea puede convertirse en algo real
+                </p>
+            </div>
+            <!--Normalmente solo hay una etiqueta h1 por que es la principal representa el titulo principal de la seccion-->
+            <h1>
+                Construye una experiencia web atractiva y funcional con nuestro proyecto.
+            </h1>
+
+            <p class = "hero-text">
+                Esta landing puede adaptarse a cualquier proyecto:
+                
+                Un producto, un servicio, una app, un curso, un evento, etc.
+            </p>
+
+            <div class = "hero-actions">
+                <a href="#contacto" class="btn btn-primary">Contacto</a>
+                <a href="#contenido" class="btn btn-secondary">Explorar</a>
+            </div>
+        </section>
+        
         <h1>Bienvenido a mi proyecto</h1>
         <p>Este es un ejemplo de una página de aterrizaje.</p>
         <a href="index.html">Ir a la página principal</a>
